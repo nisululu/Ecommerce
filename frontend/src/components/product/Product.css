@@ -1,0 +1,185 @@
+.product-card {
+    width: 15vmax;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    margin: 2vmax 2vmax 2vmax 0;
+    transition: all 0.5s;
+    padding: 0 0 0.5vmax 0;
+    color: black;
+}
+
+.product-card>p {
+    font-size: 1vmax;
+    margin:0.2vmax 0.5vmax 0 0.5vmax;
+    text-transform: capitalize;
+}
+
+.product-card>span {
+    margin: 0 0.5vmax;
+    color: tomato;
+    font-size: 1vmax;
+}
+
+.product-card:hover {
+    transform: translateY(-1vmax);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.44);
+}
+
+.react-star-main {
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    margin: 0 0.5vmax;
+}
+
+.react-star-main>span {
+    margin: 0.3vmax 0.5vmax 0 0.5vmax;
+    font-size: 1vmax;
+}
+
+/* .react-stars {
+    font-size: 5vmax;
+} */
+
+/* Get All Products */
+/* .all-product-main{
+    height: 100vh;
+} */
+
+.all-products {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 40vh;
+}
+
+.all-products-txt {
+    text-align: center;
+    margin: 1vmax auto;
+    margin-top: 2vmax;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.28);
+    width: 20vmax;
+    font-size: 1.5vmax;
+}
+
+/* Pagination Box */
+.pagination-box {
+    display: flex;
+    justify-content: center;
+    margin: 2vmax;
+}
+
+.pagination {
+    display: flex;
+}
+
+.pagination-icon {
+    font-size: .7vmax;
+}
+
+.page-item {
+    list-style: none;
+    transition: all .3s;
+    cursor: pointer;
+    padding: .5vmax 1vmax;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.page-item:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+.page-item:first-child {
+    border-radius:  5px 0 0 5px ;
+}
+
+.page-link {
+    text-decoration: none;
+    font-size: .8vmax;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.page-item:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.page-item:hover .page-link {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.page-item-active {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.page-link-active{
+    color: white;
+}
+
+/* Filter */
+.filter-box {
+    width:10vmax;
+    position: absolute;
+    top:10vmax;
+    left:3vmax;
+}
+
+/* Category */
+
+.category-link {
+    list-style: none;
+    color: rgba(0, 0, 0, 0.65);
+    font: 400 0.8vmax "Poppins";
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.category-link:hover {
+    color: black;
+}
+
+@media screen and (max-width: 600px) {
+
+    .all-products {
+        width: 100%;
+    }
+
+    /* .product-card {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.44);
+    } */
+
+    .product-card>p {
+        font-size: 1.5vmax;
+    }
+
+    .product-card>react-star-main{
+        margin: 0vmax;
+        display: block;
+    }
+
+    .product-card>span {
+        font-size: 1.5vmax;
+    }
+
+    product-card>react-star-main>span {
+        margin: 0 0.5vmax;
+        font: 300 1vmax;
+    }
+
+    .react-star-main {
+        flex-direction: column;
+        align-items: self-start;
+    }
+
+    .filter-box {
+        width:20vmax;
+        position: static;
+        margin: auto;
+    }
+
+    .page-link {
+        font-size:1.2vmax
+    }
+}

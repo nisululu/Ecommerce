@@ -1,0 +1,175 @@
+.cartPage {
+    padding: 5vmax;
+}
+
+.cartHeader {
+    background-color: rgba(0, 0, 0, 0.77);
+    width: 90%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+    margin: auto;
+    color: white;
+    font: 300 .7vmax;
+}
+
+.cartHeader>p {
+    margin: 10px;
+}
+
+.cartHeader>p:last-child {
+    text-align: end;
+}
+
+.cartContainer {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+}
+
+.cartInput {
+    display: flex;
+    align-items: center;
+    height: 8vmax;
+}
+
+.cartInput>input {
+    border: none;
+    padding: .5vmax;
+    width: 1vmax;
+    font: 400 .8vmax "Poppins";
+    color: rgba(0, 0, 0, 0.738);
+    outline: none;
+}
+
+.cartInput>button {
+    border: none;
+    background-color: rgba(0, 0, 0, 0.83);
+    padding: .5vmax;
+    cursor: pointer;
+    color: white;
+    transition: all .5s;
+}
+
+.cartInput>button:hover{
+    background-color: black;
+}
+
+.cartSubTotal {
+    display: flex;
+    padding:.5vmax;
+    justify-content: flex-end;
+    color: rgba(0, 0, 0, 0.79);
+    box-sizing: border-box;
+    align-items: center;
+    height: 8vmax;
+}
+
+.cartGrossTotal {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr;
+}
+
+.cartGrossTotalBox {
+    border-top: 3px solid black;
+    box-sizing: border-box;
+    margin: .5vmax 5vmax .5vmax 2vmax;
+    display: flex;
+    justify-content: space-between;
+    padding: 2vmax 0;
+}
+
+.checkOutBtn {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 5vmax 0 0;
+}
+
+.checkOutBtn>button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: .8vmax 4vmax;
+    cursor: pointer;
+}
+
+.checkOutBtn>button:hover {
+    background-color: rgba(0, 0, 0, 0.778);
+}
+
+.emptyCart {
+    margin: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50vh;
+    padding: 10vmax;
+}
+
+.emptyCart>h1 {
+    font: 500 2vmax "Poppins";
+    margin:1vmax 0;
+}
+
+.emptyCart>a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(0, 0, 0);
+    padding: .5vmax 2vmax;
+    transition: all .5s;
+}
+
+.emptyCart>a:hover {
+    background-color: rgba(0, 0, 0, 0.864);
+}
+
+.emptyCartImg {
+    color: rgb(71, 255, 197);
+    font-size: 10vmax;
+}
+
+@media screen and (max-width: 600px) {
+    .cartPage {
+        padding: 0;
+    }
+
+    .cartHeader {
+        width: 100%;
+        font: 300 1.7vmax "Poppins";
+        grid-template-columns: 3fr 1fr 1fr;
+    }
+
+    .cartContainer {
+        width: 100%;
+        grid-template-columns: 3fr 1fr 1fr;
+    }
+
+    .cartInput {
+        height: 20vmax;
+    }
+
+    .cartInput>button,
+    .cartInput>input {
+        font: 300 1.5vmax "Poppins";
+        padding: .5vmax 1.5vmax;
+    }
+    .cartInput>input {
+        width: 13px;
+        text-align: center;
+    }
+
+    .cartSubTotal {
+        padding: 1.2vmax;
+        font: 300 2vmax "Poppins";
+        height: 20vmax;
+    }
+
+    .cartGrossTotal {
+        display: grid;
+        grid-template-columns: 0fr 2fr;
+    }
+}

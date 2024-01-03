@@ -1,0 +1,103 @@
+.shippingContainer {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    margin-top: 2vmax;
+}
+
+.shippingBox {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    width: 30vw;
+    height: 80vh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.shippingBox>h2 {
+    margin: 2vmax 0 0 0;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.738);
+    font: 500 1.2vmax "Poppins";
+}
+
+.shippingForm {
+    margin: auto;
+    padding:2vmax;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70%;
+    transition: all .5s;
+}
+
+.shippingForm>div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    position: relative;
+}
+
+.shippingForm>div>input,
+.shippingForm>div>select {
+    padding: 1vmax 3vmax;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    font: 300 .9vmax "Poppins";
+    outline: none;
+}
+
+.shippingForm>div>.fontAwesome {
+    position: absolute;
+    transform: translateX(1.2vmax);
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1.1vmax;
+}
+
+.shippingBtn {
+    background-color: #00a676;
+    color: rgba(255, 255, 255, 0.8);
+    font: 300 .9vmax "Poppins";
+    width: 100%;
+    padding: .8vmax;
+    cursor: pointer;
+    transition: all .3s;
+    border: none;
+}
+
+.shippingBtn:hover {
+    background-color: #00a677cd; 
+}
+
+@media screen and (max-width: 600px) {
+    .shippingBox {
+        box-shadow: none;
+        width: 100vw;
+        height: 95vh;
+    }
+
+    .shippingBox>h2 {
+        font:400 6vw "Poppins";
+    }
+
+    .shippingForm {
+        padding: 11vw;
+    }
+
+    .shippingForm>div>input,
+    .shippingForm>div>select {
+        padding: 5vw 10vw;
+        font: 300 3vw "Poppins";
+    } 
+
+    .shippingForm>div>.fontAwesome {
+        font-size: 2vh;
+    }
+
+    .shippingBtn {
+        padding: 5vw 10vw;
+        font: 300 3.5vw "Poppins";
+    }
+}

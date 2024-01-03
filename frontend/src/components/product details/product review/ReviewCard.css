@@ -1,0 +1,26 @@
+.review-col {
+    width:20vmax;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    align-items: center;
+    padding:3vmax;
+    margin:1vmax;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.review-col:hover {
+    transform: translateY(-1vmax);
+}
+
+.review-col > p {
+    font-size: .8vmax;
+    text-align: justify;
+}
+
+.review-col > h4 {
+    margin-top: .5vmax;
+    font-size: 1vmax;
+}

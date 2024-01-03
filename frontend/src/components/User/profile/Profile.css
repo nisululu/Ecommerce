@@ -1,0 +1,124 @@
+.profile-container {
+    display: flex;
+    width: 70vw;
+    height: 70vh;
+    margin: 5vmax auto;
+
+}
+
+.profile-container>div {
+    display: flex;
+    width: 100vw;
+    height: 70vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.profile-container>div:first-child>h3 {
+    font: 600 1.5vmax "Poppins";
+}
+
+.profile-container>div:first-child>img {
+    width: 15vmax;
+    border-radius: 100%;
+}
+
+.profile-container>div:first-child>a {
+    border: none;
+    background-color: black;
+    text-decoration: none;
+    width: 15vmax;
+    text-align: center;
+    padding: 1vmax 0;
+    font: 500 1vmax "Poppins";
+    color: white;
+    border-radius: 5px;
+    transition: all .3s;
+}
+
+.profile-container>div:first-child>a:hover {
+    background-color: #00a677cd;
+}
+
+.profile-container>div:last-child {
+    display: flex;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 0 0 0 5vmax;
+}
+
+.profile-container>div:last-child>div>h4 {
+    font: 400 1.2vmax "Poppins";
+}
+
+.profile-container>div:last-child>div>p {
+    color: rgba(0, 0, 0, 0.5);
+    font: 400 1vmax "Poppins";
+}
+
+.profile-container>div:last-child>div:last-child {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.profile-container>div:last-child>div:last-child>a {
+    border: none;
+    background-color: #00a677cd;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.5vmax;
+    color: white;
+    justify-content: space-between;
+    transition: all .3s;
+    font: 500 1vmax "Poppins";
+}
+
+.profile-container>div:last-child>div:last-child>a:hover {
+    background-color: black;
+}
+
+.profile-container>div:last-child>div:last-child>a:first-child {
+    margin-bottom: 1vmax;
+}
+
+@media screen and (max-width: 600px) {
+    .profile-container {
+        flex-direction: column;
+        margin: 2vmax auto;
+        width: 100vw;
+    }
+
+    .profile-container>div:last-child {
+        align-items: center;
+        padding: 0;
+        text-align: center;
+    }
+
+    .profile-container>div:last-child>div:last-child>a {
+        background-color: black;
+        padding: 1vmax;
+        font: 500 1.3vmax "Poppins";
+    }
+
+    .profile-container>div:first-child>h3 {
+        font: 600 2vmax "Poppins";
+    }
+
+    .profile-container>div:first-child>a {
+        width: 20vmax;
+        padding: 1.2vmax 0;
+        font: 500 1.3vmax "Poppins";
+    }
+
+    .profile-container>div:last-child>div>h4 {
+        font: 400 1.5vmax "Poppins";
+    }
+    
+    .profile-container>div:last-child>div>p {
+        color: rgba(0, 0, 0, 0.5);
+        font: 400 1.2vmax "Poppins";
+    }
+}

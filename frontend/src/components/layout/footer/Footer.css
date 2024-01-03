@@ -1,0 +1,108 @@
+footer{
+    background-color: rgb(0, 0, 0);
+    color: #8a8a8a;
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+.footer-main{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+div> .footerh3{
+    color: #fff;
+    margin-bottom: .5vmax;
+    font-size: 1.2vmax;
+}
+
+.contactus>strong{
+    color: rgba(255, 255, 255, 0.805);
+}
+
+.contactus > p,
+.footer-right > p {
+    margin-bottom: 5px;
+    font-size: .9vmax;
+}
+
+.follow-icon{
+    height: 1.5em;
+    width: 2em;
+    transition: 0.5s ease;
+}
+
+.follow-icon:hover,
+.footer-mid > ul > li > .aboutus-link:hover,
+.follow > ul > li > .followus-link:hover
+{
+    color: rgb(0, 255, 255);
+    cursor: pointer;
+}
+
+.footer-mid > ul{
+    padding: 0;
+}
+
+.footer-mid > ul > li, .follow > ul > li {
+    list-style: none;
+    margin-bottom: 5px;
+    padding: 0px;
+    font-size: .9vmax;
+}
+
+.aboutus-link, .followus-link{
+    text-decoration: none;
+    text-transform:uppercase;
+    font-size: normal;
+    color: #8a8a8a;
+    transition: 0.5s ease;
+}
+
+.store-svg > .svg-link > img{
+    width: 10vmax;
+    margin: 0 5px;
+}
+
+.payment-svg{
+    display: flex;
+    align-items: center;
+}
+
+.payment-svg > .svg-link > img {
+    width:5em;
+    margin-right: 20px;
+}
+
+hr{
+    border: none;
+    background: #b5b5b5;
+    height: 1px;
+    margin: 20px auto;
+    width: 85%;
+}
+
+.copyright{
+    text-align: center;
+    color: rgba(255, 255, 255, 0.605);
+    font-size: .9vmax;
+}
+
+@media screen and (max-width:600px) {
+    .footer-main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contactus,
+    .follow,
+    .footer-mid,
+    .footer-right {
+        margin-top: 1vmax;
+    }
+
+}
+

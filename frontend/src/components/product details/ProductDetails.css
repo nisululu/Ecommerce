@@ -1,0 +1,171 @@
+.single-product-main {
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.col-1 {
+    width: 35%;
+}
+
+.col-2 {
+    width: 40%;
+}
+
+.empty {
+    height: 100vh;;
+}
+
+.detailsBlock-1>h2 {
+    font-size: 1.6vmax;
+}
+
+.detailsBlock-1>p{
+    font-size: 0.8vmax;
+}
+
+.detailsBlock-1 {
+    margin-bottom: 10px;
+}
+
+.detailsBlock-2>p{
+    text-align: justify;
+    font-size: 0.9vmax;
+}
+
+/* .detailsBlock-2>.react-stars {
+    font-size: 1vmax;
+} */
+
+.detailsBlock-3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1vmax;
+    font-size: .8vmax;
+}
+
+.detailsBlock-3 > .detailsBlock-3-1 {
+    align-items: center;
+    display: flex;
+}
+
+.detailsBlock-3-1 > button{
+    border: none;
+    background-color: #000000;
+    color: white;
+    margin-left: 1vmax;
+    font-size:.8vmax;
+    padding: .1vmax .5vmax;
+}
+
+
+.detailsBlock-4 {
+    /* width:70%; */
+}
+
+.detailsBlock-4 > h3 {
+    color: #FF3B01;
+    font-weight: lighter;
+    font-size: 1.3vmax;
+    margin: 1vmax 0;
+}
+
+.detailsBlock-4-1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detailsBlock-4-1-1 {
+    display: flex;
+    align-items: center;
+}
+
+.detailsBlock-4-1-1 > button {
+    background-color: black;    
+    border: 2px solid black;
+    color: white;
+    padding: .5vmax .7vmax;
+    transition: all .5s;
+    font-size: .9vmax;
+}
+
+.detailsBlock-4-1-1 > button:hover {
+    border: 2px solid rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.708);
+}
+
+.detailsBlock-4-1-1 > input {
+    padding: .5vmax 0;
+    text-align: center;
+    width: 5vmax;
+    margin: 0 .2vmax;
+    font-size: .9vmax;
+}
+
+.redColor {
+    color: red;
+}
+
+.greenColor {
+    color: green;
+}
+
+.detailsBlock-4-1 > button:last-child {
+    font-size: .9vmax;
+    border: none;
+    background-color:  #000000;
+    color: white;
+    padding: 0.5vmax 5vmax;
+    transition: all .5s;
+}
+
+.detailsBlock-4-1 > button:last-child:hover {
+    background-color: rgba(0, 0, 0, 0.794);
+}
+
+.reviews {
+    width: 80%;
+    margin:auto;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    overflow: auto;
+}
+
+.reviews-txt {
+    text-align: center;
+    font-size: 1.4vmax;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.28);
+    width: 20vmax;
+    margin: 5vmax auto;
+    margin-bottom: 2vmax;
+}
+
+@media screen and (max-width:600px) {
+    .row{
+        flex-direction: column;
+        height: unset;
+    }
+    .col-1,
+    .col-2 {
+        width: 70%;
+        margin: auto;
+    }
+
+    .detailsBlock-3 > .detailsBlock-3-1 {
+        flex-direction: column;
+        align-items: self-start;
+    }
+
+    .detailsBlock-3-1 > button{
+        margin-left: 0;
+    }
+}
+
+

@@ -1,0 +1,186 @@
+.confirmOrderPage {
+    width: 80%;
+    margin: auto;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 6fr 3fr;
+}
+
+.confirmOrderPage>div:last-child {
+    border-left: 1px solid rgba(0, 0, 0, 0.337);
+}
+
+.confirmShippingArea {
+    padding: 5vmax;
+    padding-bottom: 0%;
+}
+
+.confirmShippingArea>p {
+    font: 400 1.8vmax "Poppins";
+}
+
+.confirmShippingAreaBox,
+.confirmCartIetmsContainer {
+    margin: 2vmax;
+}
+
+.confirmShippingAreaBox>div {
+    display: flex;
+    margin: 1vmax 0;
+}
+
+.confirmShippingAreaBox>div>p {
+    font: 400 1vmax "Poppins";
+}
+
+.confirmShippingAreaBox>div>span {
+    color: rgba(0, 0, 0, 0.7);
+    margin: 0 1vmax;
+    font: 100 1vmax "Poppins";
+}
+
+.confirmCartItems>P {
+    font: 400 1.8vmax "Poppins";
+}
+
+.confirmCartItems {
+    padding: 5vmax;
+    padding-top: 2vmax;
+}
+
+.confirmCartIetmsContainer {
+    max-height: 30vmax;
+    overflow-y: auto;
+}
+
+.confirmCartIetmsContainer>div {
+    font: 400 1vmax "Poppins";
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1vmax 0;
+}
+
+.confirmCartIetmsContainer>div>img {
+    width: 7vmax;
+}
+
+.confirmCartIetmsContainer>div>a {
+    color: rgba(0, 0, 0, 0.7);
+    margin: 0 2vmax;
+    text-decoration: none;
+}
+
+.confirmCartIetmsContainer>div>span {
+    font: 100 1vmax "Poppins";
+    color: rgba(0, 0, 0, 0.7);
+    width: 30%;
+}
+
+.orderSummary {
+    padding: 5vmax;
+}
+
+.orderSummary>h3 {
+    text-align: center;
+    font: 500 1.5vmax "Poppins";
+    border-bottom: 1px solid rgba(0, 0, 0, 0.337);
+    padding: 1vmax;
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.orderSummary>div>div {
+    display: flex;
+    justify-content: space-between;
+    margin: 2vmax 0;
+    font: 300 1vmax "Poppins";
+}
+
+.orderSummary>div>div>span {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.orderSummaryTotal {
+    padding: 2vmax 0;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(0, 0, 0, 0.337);
+}
+
+.orderSummary>button {
+    background-color: #00a676;
+    color: white;
+    width: 100%;
+    padding: 1vmax;
+    margin: auto;
+    border: none;
+    cursor: pointer;
+    transition: all .5s;
+    font: 400 1vmax "Poppins";
+}
+
+.orderSummary>button:hover {
+    background-color: #00a677cd;
+}
+
+@media screen and (max-width: 600px) {
+    .confirmOrderPage {
+        grid-template-columns: 1fr;
+        height: unset;
+        width: 95%;
+    }
+
+    .confirmOrderPage>div:last-child {
+        border-left: none;
+    }
+
+    .confirmShippingArea>h3 {
+        font: 400 5vw "Poppins";
+    }
+
+    .confirmShippingAreaBox>div {
+        display: flex;
+        margin: 6vw 0;
+    }
+
+    .confirmShippingAreaBox>div>p {
+        font: 400 3.5vw "Poppins";
+    }
+
+    .confirmShippingAreaBox>div>span {
+        font: 400 3.5vw "Poppins";
+    }
+
+    .confirmCartIetmsContainer {
+        max-height: 50vw;
+    }
+
+    .confirmCartIetmsContainer>div {
+        font: 400 3vw "Poppins";
+    }
+
+    .confirmCartIetmsContainer>div>img {
+        width: 10vw;
+    }
+
+    .confirmCartIetmsContainer>div>a {
+        margin: 0;
+        width: 40%;
+    }
+
+    .orderSummary>h3 {
+        font: 400 4.5vw "Poppins";
+    }
+
+    .orderSummary>div>div {
+        font: 300 3vw "Poppins";
+    }
+
+    .orderSummary>button {
+        padding: 4vw;
+        margin: 4vw auto;
+        font: 300 3vw "Poppins";
+    }
+}
