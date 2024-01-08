@@ -26,7 +26,7 @@ const CheckoutSteps = ({activeStep}) => {
         boxSizing: "border-box",
         width: "50%",
         margin: "auto",
-        marginTop: "40px",
+        marginTop: "100px",
         // marginBottom: "10px"
     }
 

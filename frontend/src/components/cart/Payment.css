@@ -1,0 +1,83 @@
+.paymentContainer {
+    display: grid;
+    place-items: center;
+    margin: 2vmax;
+    height: 65vh;
+}
+
+.paymentForm {
+    width: 22%;
+    height: 100%;
+}
+
+.paymentForm>h3 {
+    font: 400 2vmax "Poppins";
+    border-bottom: 1px solid rgba(0, 0, 0, 0.428);
+    padding: 1vmax 0;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+
+.paymentForm>div {
+    display: flex;
+    align-items: center;
+    margin: 2vmax 0;
+}
+
+.paymentInput {
+    padding: 1vmax 3vmax;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    font: 300 .9vmax "Poppins";
+    outline: none;
+}
+
+.fonticon {
+    position: absolute;
+    transform: translateX(1vmax);
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1.1vmax;
+}
+
+.paymentBtn {
+    background-color: #00a676;
+    color: rgba(255, 255, 255, 0.8);
+    font: 300 .9vmax "Poppins";
+    width: 100%;
+    padding: .8vmax;
+    cursor: pointer;
+    transition: all .3s;
+    border: none;
+}
+
+.paymentBtn:hover {
+    background-color: #00a677cd;
+}
+
+@media screen and (max-width: 600px) {
+    .paymentForm {
+        width: 80%;
+        margin-top: 50px;
+    }
+
+    .paymentForm>h3 {
+        font-size: 3vmax;
+    }
+
+    .paymentInput {
+        padding: 2vmax 5vmax;
+    }
+
+    .fonticon {
+        font-size: 2vmax;
+    }
+
+    .paymentBtn {
+        padding: 1.8vmax;
+        font-size: 2vmax;
+    }
+
+}

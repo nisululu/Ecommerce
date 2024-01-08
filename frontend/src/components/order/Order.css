@@ -1,0 +1,19 @@
+.myOrdersPage {
+    width: 90%;
+    margin: auto;
+    margin-top: 150px;
+    text-align: center;
+}
+
+.myOrdersPage>h2 {
+    width: 60%;
+    margin: auto;
+    margin-bottom: -50px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.211);
+}
+
+.MuiDataGrid-columnHeader {
+    background-color: #00a677cd;
+    color: whitesmoke;
+}

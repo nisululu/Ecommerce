@@ -1,0 +1,33 @@
+.orderSuccess {
+    text-align: center;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.orderCheck {
+    color: #00a676;
+    font-size: 7vmax;
+}
+
+.orderSuccess>h3 {
+    font-size: 2vmax;
+    margin: 2vmax 0;
+}
+
+.orderSuccess>a {
+    background-color: black;
+    text-decoration: none;
+    padding: 1vmax 3vmax;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+    font: 300 .9vmax "Poppins";
+    transition: all .3s;
+    border: none;
+}
+
+.orderSuccess>a:hover {
+    background-color: #00a677cd;
+}

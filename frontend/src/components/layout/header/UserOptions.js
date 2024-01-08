@@ -27,7 +27,7 @@ const UserOptions = ({ user }) => {
     }
 
     const orders = () => {
-        navigate("/orders")
+        navigate("/orders/me")
     }
 
     const cart = () => {
@@ -65,7 +65,7 @@ const UserOptions = ({ user }) => {
                 open={open}
                 direction='down'
                 className='speed-dial'
-                style={{ zIndex: '1' }}
+                FabProps={{ size: "small", style: {backgroundColor: "transparent", boxShadow: "none"} }}
                 icon={
                     <img className='speedDialIcon' src={user.avatar.url ? user.avatar.url : profilepic} alt='Profile' />
                 }

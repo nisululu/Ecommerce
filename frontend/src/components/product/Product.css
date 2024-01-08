@@ -43,9 +43,9 @@
 } */
 
 /* Get All Products */
-/* .all-product-main{
-    height: 100vh;
-} */
+.all-product-main{
+    margin-top: 100px;
+}
 
 .all-products {
     width: 80%;

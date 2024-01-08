@@ -104,7 +104,7 @@ export const updateProfilee = (userData) => async (dispatch) => {
         const config = { headers: { "Content-Type": "multipart/form-data" } }
 
         const { data } = await axios.put(
-            `/api/v1/me/update`,
+            "/api/v1/me/update",
             userData,
             config
         )

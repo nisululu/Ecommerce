@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/layout/header/Header'
 import Footer from './components/layout/footer/Footer';
@@ -21,10 +21,23 @@ import UpdatePassword from './components/User/login Signup/UpdatePassword';
 import Cart from './components/cart/Cart';
 import Shipping from './components/cart/Shipping';
 import ConfirmOrder from './components/cart/ConfirmOrder';
+import Payment from './components/cart/Payment';
+import axios from 'axios';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import Success from './components/cart/Success';
+import Order from './components/order/Order';
+import OrderDetails from './components/order/OrderDetails'
 
 function App() {
 
   const { isAuthenticated, user } = useSelector(state => state.user)
+  const [stripeApiKey, setStripeApiKey] = useState("")
+
+  async function getStripeApiKey() {
+    const { data } = await axios.get("/api/v1/stripeapikey")
+    setStripeApiKey(data.stripeApiKey)
+  }
 
   useEffect(() => {
     WebFont.load({
@@ -33,6 +46,7 @@ function App() {
       }
     })
     store.dispatch(loadUser())
+    getStripeApiKey()
   }, [])
   return (
     <Router>
@@ -55,19 +69,39 @@ function App() {
           <ProtectedRoute exact path='/profile' Component={Profile} />
         } /> */}
 
-        {/* <Route exact path='/profile' element={
+        {/* <Route exact path='/profile' Component={
           <ProtectedRoute>
             <Profile />
           </ProtectedRoute>
         } /> */}
 
-        <Route exact path='/profile' Component={Profile} />
-        <Route exact path='/me/update' Component={UpdateProfile}/>
-        <Route exact path='/password/update' Component={UpdatePassword} />
-        <Route exact path='/cart' Component={Cart} />
+        <Route element={<ProtectedRoute />}>
+          <Route exact path='/profile' Component={Profile} />
+          <Route exact path='/me/update' Component={UpdateProfile} />
+          <Route exact path='/password/update' Component={UpdatePassword} />
+          <Route exact path='/cart' Component={Cart} />
+          <Route exact path='/login/shipping' Component={Shipping} /> {/*protected Route*/}
+          <Route exact path='/order/confirm' Component={ConfirmOrder} />
 
-        <Route exact path='/login/shipping' Component={Shipping} /> {/*protected Route*/}
-        <Route exact path='/order/confirm' Component={ConfirmOrder} />
+          <Route exact path='/process/payment' element={
+            stripeApiKey &&
+            <Elements stripe={loadStripe(stripeApiKey)}>
+              <Payment />
+            </Elements>
+          } />
+          <Route exact path='/success' Component={Success} />
+          <Route exact path='/orders/me' Component={Order} />
+          <Route exact path='/order/:id' Component={OrderDetails} />
+        </Route>
+
+        {/* <Route exact path='/profile' Component={Profile} /> */}
+        {/* <Route exact path='/me/update' Component={UpdateProfile} />
+        <Route exact path='/password/update' Component={UpdatePassword} />
+        <Route exact path='/cart' Component={Cart} /> */}
+
+        {/* <Elements stripe={loadStripe(stripeApiKey)}>
+          <Route exact path='/process/payment' Component={Payment} />
+        </Elements> */}
 
       </Routes>
       <Footer />
