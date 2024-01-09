@@ -31,8 +31,8 @@ const LoginSignup = () => {
         password: "",
         email: ""
     })
-    const [avatar, setAvatar] = useState()
-    const [avatarPreview, setAvatarPreview] = useState(profile)
+    const [avatar, setAvatar] = useState("/profile.png")
+    const [avatarPreview, setAvatarPreview] = useState("/profile.png")
     const [loginEmail, setLoginEmail] = useState("")
     const [loginPassword, setLoginPassword] = useState("")
     const [view, setView] = useState(false)
@@ -75,19 +75,6 @@ const LoginSignup = () => {
         dispatch(login(loginEmail, loginPassword))
     }
 
-    const handleRegister = (e) => {
-        e.preventDefault()
-
-        const myForm = new FormData()
-
-        myForm.set("name", name)
-        myForm.set("email", email)
-        myForm.set("password", password)
-        myForm.set("avatar", avatar)
-
-        dispatch(signup(myForm))
-    }
-
     const registerChange = (e) => {
         if (e.target.name === "avatar") {
             const reader = new FileReader()
@@ -102,6 +89,19 @@ const LoginSignup = () => {
         } else {
             setUserData({ ...userData, [e.target.name]: e.target.value })
         }
+    }
+
+    const handleRegister = (e) => {
+        e.preventDefault()
+
+        const myForm = new FormData()
+
+        myForm.set("name", name)
+        myForm.set("email", email)
+        myForm.set("password", password)
+        myForm.set("avatar", avatar)
+
+        dispatch(signup(myForm))
     }
 
     return (
@@ -196,6 +196,7 @@ const LoginSignup = () => {
                                             name='avatar'
                                             accept='image/*'
                                             onChange={registerChange}
+                                            required
                                         />
                                     </div>
                                     <input

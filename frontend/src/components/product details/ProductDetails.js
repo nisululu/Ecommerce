@@ -13,6 +13,8 @@ import ReviewCard from './product review/ReviewCard'
 import { useAlert } from 'react-alert'
 import MetaData from '../layout/MetaData'
 import { addItemsToCart } from '../../actions/cartAction'
+import { Dialog, DialogActions, DialogTitle, DialogContent, DialogContentText, Rating, Button, Stack } from '@mui/material'
+
 
 const ProductDetails = () => {
 
@@ -23,7 +25,7 @@ const ProductDetails = () => {
   const { loading, product, error } = useSelector(state => state.productDetails)
 
   useEffect(() => {
-    if(error){
+    if (error) {
       alert.error(error)
       dispatch(clearErrors())
     }
@@ -43,14 +45,14 @@ const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1)
 
   const incQuantity = () => {
-    if(product.stock <= quantity) return;
-    const qty = quantity+1
+    if (product.stock <= quantity) return;
+    const qty = quantity + 1
     setQuantity(qty)
   }
 
   const decQuantity = () => {
-    if(quantity <= 1) return;
-    const qty = quantity-1
+    if (quantity <= 1) return;
+    const qty = quantity - 1
     setQuantity(qty)
   }
 
@@ -59,20 +61,30 @@ const ProductDetails = () => {
     alert.success("Items added to cart!")
   }
 
+  const [open, setOpen] = useState(false)
+
+  const handleClickOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Fragment>
       {
         loading ?
           // <Loader />
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height:"100vh"}}>
-          <img src={load} alt='loading' />
-      </div>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+            <img src={load} alt='loading' />
+          </div>
           :
           <Fragment>
             {
               product ?
                 <>
-                <MetaData title={`${product.name} -- ECOMMERCE`} />
+                  <MetaData title={`${product.name} -- ECOMMERCE`} />
                   <div className='single-product-main'>
                     <div className='row'>
                       <div className='col-1'>
@@ -95,7 +107,7 @@ const ProductDetails = () => {
                             <ReactStars className="react-stars" {...options} />
                             <span>({product.numOfReviews} Reviews)</span>
 
-                            <button className='submitReview'>Submit Review</button>
+                            <button className='submitReview' onClick={handleClickOpen}>Submit Review</button>
                           </div>
 
                           <div className='detailsBlock-3-2'>
@@ -114,12 +126,29 @@ const ProductDetails = () => {
                               <input readOnly type='number' value={quantity} />
                               <button onClick={incQuantity}>+</button>
                             </div>{" "}
-                            <button onClick={addToCartHandler}>Add to Cart</button>
+                            <button disabled={product.stock < 1 ? true : false} onClick={addToCartHandler}>Add to Cart</button>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+
+                  <Dialog
+                    open={open}
+                    keepMounted
+                    onClose={handleClose}
+                    aria-describedby="alert-dialog-slide-description"
+                  >
+                    <DialogTitle>{"Sumbit Review"}</DialogTitle>
+                    <DialogContent className='submitDialog'>
+                        <Rating precision={0.5} size="large" />
+                        <textarea></textarea>
+                      <DialogActions>
+                        <Button onClick={handleClose}>Cancel</Button>
+                        <Button>Submit</Button>
+                      </DialogActions>
+                    </DialogContent>
+                  </Dialog>
 
                   {
                     product.reviews && product.reviews[0] ? (
