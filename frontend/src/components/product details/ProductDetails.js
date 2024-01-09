@@ -13,7 +13,7 @@ import ReviewCard from './product review/ReviewCard'
 import { useAlert } from 'react-alert'
 import MetaData from '../layout/MetaData'
 import { addItemsToCart } from '../../actions/cartAction'
-import { Dialog, DialogActions, DialogTitle, DialogContent, DialogContentText, Rating, Button, Stack } from '@mui/material'
+import { Dialog, DialogActions, DialogTitle, DialogContent, Rating, Button } from '@mui/material'
 
 
 const ProductDetails = () => {
