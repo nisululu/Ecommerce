@@ -1,5 +1,5 @@
 const express = require('express')
-const { createProduct, getProduct, updateProduct, deleteProduct, getProductDetails, createProductReview, getProductReviews, deleteProductReview } = require('../controller/productController')
+const { createProduct, getProduct, updateProduct, deleteProduct, getProductDetails, createProductReview, getProductReviews, deleteProductReview, getAdminProducts } = require('../controller/productController')
 const { isAuthenticatedUser, authorization } = require('../middleware/authentication')
 
 const router = express.Router()
@@ -9,6 +9,9 @@ router.route("/admin/product/create").post(isAuthenticatedUser, authorization("a
 
 //Get All Product Route
 router.route("/products").get(getProduct)
+
+//Get All  Product Route -- Admin
+router.route("/admin/products").get(isAuthenticatedUser, authorization("admin"),getAdminProducts)
 
 //Update,Delete and View Product Route
 router.route("/admin/product/:id")

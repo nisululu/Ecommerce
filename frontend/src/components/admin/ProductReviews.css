@@ -1,0 +1,80 @@
+.productReviewPage {
+    width: 90%;
+    text-align: center;
+    margin: auto;
+}
+
+.updateProductReviewForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    /* margin-top: px; */
+    justify-content: space-evenly;
+    height: 30vh;
+    padding: 2vmax;
+    transition: all .3s;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    width: 50%;
+}
+
+.updateProductReviewForm>h2{
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.updateProductReviewForm>div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    position: relative;
+    /* justify-content: center; */
+}
+
+.updateProductReviewForm>div>input {
+    padding: 1vmax 3vmax;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    font: 300 .9vmax "Poppins";
+    outline: none;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.updateProductReviewForm>div>.updateProductIcon {
+    position: absolute;
+    transform: translateX(1vmax);
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1.1vmax;
+}
+
+.noReview {
+    color: rgba(0, 0, 0, 0.623);
+    margin: 5vmax 0 ;
+}
+
+@media screen and (max-width:600px) {
+
+    .updateProductReviewForm {
+        /* padding: 2.5vmax 5vmax; */
+        font: 300 2vmax "Poppins";
+        width: 90%;
+        box-shadow: none;
+        margin-top: 0;
+    }
+
+    .updateProductReviewForm>div>input {
+        padding: 2.5vmax 5vmax;
+        font: 300 2vmax "Poppins";
+    }
+
+    .updateProductIcon {
+        font-size: 2vmax;
+    }
+
+    .addProductBtn {
+        padding: 2.5vmax 5vmax;
+        font: 300 2vmax "Poppins";
+        margin-bottom: 50px;
+    }
+}

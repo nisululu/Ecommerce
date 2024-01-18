@@ -18,7 +18,7 @@ const Order = () => {
       dispatch(clearErrors())
     }
     dispatch(myOrder())
-  }, [dispatch])
+  }, [dispatch, error, alert])
 
   const rows = []
 
@@ -35,7 +35,6 @@ const Order = () => {
       minWidth: 150,
       flex: .5,
       cellClassName: (params) => {
-        console.log(params.api.getCellValue(params.id, "status"));
         return params.api.getCellValue(params.id, "status") === "Delivered" ? "greenColor" : "redColor"
       }
     },
@@ -71,7 +70,6 @@ const Order = () => {
         status: el.orderStatus,
         itemsQty: el.orderItems.length,
         amount: el.totalPrice,
-        // products: el.orderItems.map((el)=>el.name)
       })
     )
   })
@@ -92,8 +90,7 @@ const Order = () => {
                 <DataGrid
                   rows={rows}
                   columns={columns}
-                  pageSize={10}
-                  disableRowSelectionOnClick
+                  pageSizeOptions={10} disableRowSelectionOnClick
                   autoHeight
                   style={{ marginTop: "100px" }}
                 />

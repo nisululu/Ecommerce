@@ -1,0 +1,108 @@
+.newProductContainer>.newProductForm>h2 {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.newProductContainer {
+    padding: 0 2rem;
+    width: 80%;
+}
+
+.newProductForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    justify-content: space-evenly;
+    height: 100%;
+    padding: 2vmax;
+    transition: all .3s;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+    width: 50%;
+}
+
+
+.newProductForm>div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    position: relative;
+    /* justify-content: center; */
+}
+
+.newProductForm>div>input,
+.newProductForm>div>textarea,
+.newProductForm>div>select {
+    padding: 1vmax 3vmax;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    font: 300 .9vmax "Poppins";
+    outline: none;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.newProductForm>div>.newProductIcon {
+    position: absolute;
+    transform: translateX(1vmax);
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1.1vmax;
+}
+
+.addProductBtn {
+    background-color: #00a676;
+    color: rgba(255, 255, 255, 0.8);
+    font: 300 .9vmax "Poppins";
+    width: 100%;
+    padding: .8vmax;
+    cursor: pointer;
+    transition: all .3s;
+    border: none;
+}
+
+.addProductBtn:hover {
+    background-color: #00a677cd;
+}
+
+#newProductFormImage {
+    width: 100%;
+    overflow: auto;
+}
+
+#newProductFormImage>img {
+    width: 4vmax;
+    margin-right: .5vmax;
+
+    /* border-radius: 50%; */
+}
+
+#newProductFormFile>input::file-selector-button {
+    display: none;
+}
+
+@media screen and (max-width:600px) {
+
+    .newProductForm {
+        /* padding: 2.5vmax 5vmax; */
+        font: 300 2vmax "Poppins";
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .newProductForm>div>input,
+    .newProductForm>div>textarea,
+    .newProductForm>div>select {
+        padding: 2.5vmax 5vmax;
+        font: 300 2vmax "Poppins";
+    }
+
+    .newProductIcon {
+        font-size: 2vmax;
+    }
+
+    .addProductBtn {
+        padding: 2.5vmax 5vmax;
+        font: 300 2vmax "Poppins";
+        margin-bottom: 50px;
+    }
+}

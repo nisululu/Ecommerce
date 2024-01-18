@@ -12,8 +12,7 @@ import Search from './components/product/Search';
 import LoginSignup from './components/User/login Signup/LoginSignup';
 import Profile from './components/User/profile/Profile';
 import { loadUser } from './actions/userAction';
-import store from './store'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import UserOptions from './components/layout/header/UserOptions';
 import ProtectedRoute from './components/route/ProtectedRoute';
 import UpdateProfile from './components/User/profile/UpdateProfile';
@@ -28,15 +27,29 @@ import { loadStripe } from '@stripe/stripe-js';
 import Success from './components/cart/Success';
 import Order from './components/order/Order';
 import OrderDetails from './components/order/OrderDetails'
+import Dashboard from './components/admin/Dashboard'
+import ProductList from './components/admin/ProductList'
+import NewProduct from './components/admin/NewProduct';
+import UpdateProduct from './components/admin/UpdateProduct';
+import Orders from './components/admin/Orders';
+import UpdateOrder from './components/admin/UpdateOrder';
+import UsersList from './components/admin/UsersList';
+import UpdateUser from './components/admin/UpdateUser';
+import ProductReviews from './components/admin/ProductReviews';
+import Contact from './components/layout/contactus/Contact';
+import Aboutus from './components/layout/aboutus/Aboutus';
+import PageNotFound from './components/layout/404/PageNotFound'
+import store from './store'
+
 
 function App() {
 
-  const { isAuthenticated, user } = useSelector(state => state.user)
+  const { isAuthenticated, user } = useSelector((state) => state.user)
   const [stripeApiKey, setStripeApiKey] = useState("")
 
   async function getStripeApiKey() {
-    const { data } = await axios.get("/api/v1/stripeapikey")
-    setStripeApiKey(data.stripeApiKey)
+    const data = await axios.get("/api/v1/stripeapikey")
+    setStripeApiKey(data && data.data.stripeApiKey)
   }
 
   useEffect(() => {
@@ -48,10 +61,12 @@ function App() {
     store.dispatch(loadUser())
     getStripeApiKey()
   }, [])
+
   return (
     <Router>
       <Header />
-      {isAuthenticated && <UserOptions user={user} />}
+      {isAuthenticated && <UserOptions user={user && user} />}
+
       <Routes>
         <Route exact path='/' Component={Home} />
         <Route exact path='/product/:id' Component={ProductDetails} />
@@ -59,6 +74,8 @@ function App() {
         <Route path='/products/:keyword' Component={Products} />
         <Route exact path='/search' Component={Search} />
         <Route exact path='/login' Component={LoginSignup} />
+        <Route exact path='/contact' Component={Contact} />
+        <Route exact path='/aboutus' Component={Aboutus} />
 
         {/* For Protected Routes */}
         {/* <Route exact path='/profile' element={
@@ -80,9 +97,8 @@ function App() {
           <Route exact path='/me/update' Component={UpdateProfile} />
           <Route exact path='/password/update' Component={UpdatePassword} />
           <Route exact path='/cart' Component={Cart} />
-          <Route exact path='/login/shipping' Component={Shipping} /> {/*protected Route*/}
+          <Route exact path='/login/shipping' element={<Shipping />} /> {/*protected Route*/}
           <Route exact path='/order/confirm' Component={ConfirmOrder} />
-
           <Route exact path='/process/payment' element={
             stripeApiKey &&
             <Elements stripe={loadStripe(stripeApiKey)}>
@@ -94,6 +110,21 @@ function App() {
           <Route exact path='/order/:id' Component={OrderDetails} />
         </Route>
 
+        <Route element={<ProtectedRoute isAdmin={true} />}>
+          {/* Admin Section */}
+          <Route exact path='/admin/dashboard' Component={Dashboard} />
+          <Route exact path='/admin/products' Component={ProductList} />
+          <Route exact path='/admin/product/create' Component={NewProduct} />
+          <Route exact path='/admin/product/:id' Component={UpdateProduct} />
+          <Route exact path='/admin/orders' Component={Orders} />
+          <Route exact path='/admin/order/:id' Component={UpdateOrder} />
+          <Route exact path='/admin/users' Component={UsersList} />
+          <Route exact path='/admin/user/:id' Component={UpdateUser} />
+          <Route exact path='/admin/reviews' Component={ProductReviews} />
+        </Route>
+
+        <Route path='*' Component={PageNotFound} />
+
         {/* <Route exact path='/profile' Component={Profile} /> */}
         {/* <Route exact path='/me/update' Component={UpdateProfile} />
         <Route exact path='/password/update' Component={UpdatePassword} />
@@ -102,7 +133,6 @@ function App() {
         {/* <Elements stripe={loadStripe(stripeApiKey)}>
           <Route exact path='/process/payment' Component={Payment} />
         </Elements> */}
-
       </Routes>
       <Footer />
     </Router>

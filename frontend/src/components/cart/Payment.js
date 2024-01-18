@@ -28,7 +28,7 @@ const Payment = () => {
     const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"))
     const { shippingInfo, cartItems } = useSelector((state) => state.cart)
     const { user } = useSelector((state) => state.user)
-    const { error } = useSelector((state) => state.order)
+    const { error } = useSelector((state) => state.addOrder)
 
     const paymentData = {
         amount: Math.round(orderInfo.total * 100) //receives in paise

@@ -1,6 +1,7 @@
 .review-col {
     width:20vmax;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px  10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
     display: flex;
     flex: none;
     flex-direction: column;
@@ -23,4 +24,10 @@
 .review-col > h4 {
     margin-top: .5vmax;
     font-size: 1vmax;
+}
+
+@media screen and (max-width:600px) {
+    .review-col {
+        width:15vmax;
+    }
 }

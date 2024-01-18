@@ -41,7 +41,7 @@ const UserOptions = ({ user }) => {
     }
 
     const dashboard = () => {
-        navigate("/dashboard")
+        navigate("/admin/dashboard")
     }
 
     const actions = [

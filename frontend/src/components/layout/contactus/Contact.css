@@ -1,0 +1,25 @@
+.contactPage {
+    height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contactPage>div {
+    display: flex;
+    padding: .5vmax 0;
+    margin: .5vmax 0;
+    align-items: center;
+}
+
+.contactPage>div {
+    font: 500 1.5vmax "Poppins";
+}
+
+@media screen and (max-width: 600px) {
+    .contactPage> div {
+        font: 500 2vmax "Poppins";
+    }
+}
+

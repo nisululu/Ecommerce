@@ -18,7 +18,21 @@ import {
     UPDATE_PASSWORD_REQUEST,
     UPDATE_PASSWORD_SUCCESS,
     UPDATE_PASSWORD_RESET,
-    CLEAR_ERRORS
+    CLEAR_ERRORS,
+    ADMIN_USER_REQUEST,
+    ADMIN_USER_SUCCESS,
+    ADMIN_USER_FAIL,
+    DELETE_USER_REQUEST,
+    DELETE_USER_SUCCESS,
+    DELETE_USER_FAIL,
+    DELETE_USER_RESET,
+    UPDATE_USER_REQUEST,
+    UPDATE_USER_SUCCESS,
+    UPDATE_USER_FAIL,
+    UPDATE_USER_RESET,
+    USER_DETAIL_REQUEST,
+    USER_DETAIL_SUCCESS,
+    USER_DETAIL_FAIL
 } from '../constants/userConstant'
 
 export const userReducer = (state = { user: {} }, action) => {
@@ -42,7 +56,7 @@ export const userReducer = (state = { user: {} }, action) => {
         case LOGOUT_SUCCESS:
             return {
                 loading: false,
-                usAuthenticated: false,
+                isAuthenticated: false,
                 user: null
             }
         case LOGIN_FAIL:
@@ -115,3 +129,113 @@ export const profileReducer = (state = {}, action) => {
             return state;
     }
 }
+
+//Get all users -- Admin
+export const adminUsersReducer = (state = { users: [] }, action) => {
+    switch (action.type) {
+        case ADMIN_USER_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case ADMIN_USER_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                users: action.payload,
+            }
+        case ADMIN_USER_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+        default:
+            return state
+
+    }
+}
+
+//Get User Details -- Admin
+export const userDetailsReducer = (state = { user: {} }, action) => {
+    switch (action.type) {
+        case USER_DETAIL_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case USER_DETAIL_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                user: action.payload
+            }
+        case USER_DETAIL_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+        default:
+            return state
+    }
+}
+
+//Delete or Update Users -- Admin
+export const adminUserReducer = (state = {}, action) => {
+    switch (action.type) {
+        case DELETE_USER_REQUEST:
+        case UPDATE_USER_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case DELETE_USER_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                isDeleted: action.payload.success,
+                message: action.payload.message
+            }
+        case UPDATE_USER_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                isUpdated: action.payload.success
+            }
+        case DELETE_USER_FAIL:
+        case UPDATE_USER_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        case DELETE_USER_RESET:
+            return {
+                ...state,
+                isDeleted: false
+            }
+        case UPDATE_USER_RESET:
+            return {
+                ...state,
+                isUpdated: false
+            }
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+        default:
+            return state
+    }
+}
+

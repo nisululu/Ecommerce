@@ -34,27 +34,30 @@
 
 @media screen and (max-width: 600px) {
     .cartItemCard {
-        padding: 3vmax;
-        height: 25vmax;
+        height: 20vmax;
+        display: flex;
+        align-items: center;
     }
 
     .cartItemCard>img {
-        width: 10vmax;
+        width: 7vmax;
     }
 
     .cartItemCard>div {
-        margin: 1vmax 2vmax;
+        margin: 0 1vmax;
     }
 
     .cartItemCard>div>a {
-        font: 300 2vmax "Poppins";
+        font: 300 1.5vmax "Poppins";
     }
 
     .cartItemCard>div>span {
-        font: 300 1.9vmax "Poppins";
+        font: 300 1.4vmax "Poppins";
     }
 
-    .cartItemCard>div>p {
-        font: 100 1.8vmax "Poppins";    
+    .cartItemCard>div>p,
+    .cartSubTotal {
+        font: 100 1.5vmax "Poppins";    
     }
+
 }

@@ -22,7 +22,7 @@ const OrderDetails = () => {
       dispatch(clearErrors())
     }
     dispatch(getSingleOrderDetail(id))
-  }, [dispatch])
+  }, [dispatch, id, error, alert])
 
   return (
     <Fragment>
@@ -35,7 +35,7 @@ const OrderDetails = () => {
             <MetaData title="Order Details" />
             <div className='orderDetailsPage'>
               <div className='orderDetailsContainer'>
-                <h3>ORDER # {order._id}</h3>
+                <h3>ORDER # {order && order._id}</h3>
                 <h4>Shipping Info</h4>
                 <div className='orderDetailsContainerBox'>
                   <div>
@@ -81,7 +81,7 @@ const OrderDetails = () => {
                     order.orderItems && order.orderItems.map((el) => {
                       return (
                         <div key={el.product}>
-                          <img src={Image} alt="Image" />
+                          <img src={Image} alt="Product" />
                           <Link to={`/product/${el.product}`}>{el.name}</Link> {" "}
                           <span>
                             {el.quantity} X Rs. {el.price} = {" "}

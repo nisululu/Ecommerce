@@ -1,19 +1,18 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState, useRef } from 'react'
 import './ProductDetails.css'
 import ImageSlider from './image slider/ImageSlider'
-import { SliderData } from './image slider/SliderData'
 import ReactStars from 'react-rating-stars-component'
-// import Loader from '../layout/loader/Loader'
 import load from '../images/loading.gif'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { clearErrors, getProductDetails } from '../../actions/productAction'
+import { clearErrors, getProductDetails, reviewProduct } from '../../actions/productAction'
 import { useParams } from 'react-router-dom'
 import ReviewCard from './product review/ReviewCard'
 import { useAlert } from 'react-alert'
 import MetaData from '../layout/MetaData'
 import { addItemsToCart } from '../../actions/cartAction'
 import { Dialog, DialogActions, DialogTitle, DialogContent, Rating, Button } from '@mui/material'
+import { PRODUCT_REVIEW_RESET } from '../../constants/productConstant'
 
 
 const ProductDetails = () => {
@@ -23,26 +22,41 @@ const ProductDetails = () => {
   const { id } = useParams()
 
   const { loading, product, error } = useSelector(state => state.productDetails)
+  const { success, error: reviewError } = useSelector(state => state.productReview)
 
   useEffect(() => {
     if (error) {
       alert.error(error)
       dispatch(clearErrors())
     }
+
+    if (reviewError) {
+      alert.error(error)
+      dispatch(clearErrors)
+    }
+
+    if (success) {
+      alert.success("Review Submitted Successfully")
+      dispatch({ type: PRODUCT_REVIEW_RESET })
+    }
+
     dispatch(getProductDetails(id))
-  }, [dispatch, id, error, alert])
+  }, [dispatch, id, error, alert, success, reviewError])
+
+  const windowWidth = useRef(window.innerWidth)
 
   const options = {
-    edit: false,
-    color: "rgba(20,20,20,0.2)",
-    activeColor: "tomato",
+    size: windowWidth.current <= 600 ? "small" : "large",
     value: product ? product.ratings : 0,
-    isHalf: true,
+    precision: 0.5,
     name: product ? product.name : "",
-    size: 20
+    readOnly: true,
   }
 
   const [quantity, setQuantity] = useState(1)
+  const [open, setOpen] = useState(false)
+  const [rating, setRating] = useState("")
+  const [comment, setComment] = useState("")
 
   const incQuantity = () => {
     if (product.stock <= quantity) return;
@@ -61,8 +75,6 @@ const ProductDetails = () => {
     alert.success("Items added to cart!")
   }
 
-  const [open, setOpen] = useState(false)
-
   const handleClickOpen = () => {
     setOpen(true)
   }
@@ -70,6 +82,23 @@ const ProductDetails = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleSubmit = () => {
+    // const myForm = new FormData()
+    // myForm.set("rating",rating)
+    // myForm.set("comment",comment)
+    // myForm.set("productId",id)
+
+    const reviewData = {
+      "rating": rating,
+      "comment": comment,
+      "productID": id
+    }
+
+    dispatch(reviewProduct(reviewData))
+
+    setOpen(false)
+  }
 
   return (
     <Fragment>
@@ -88,7 +117,7 @@ const ProductDetails = () => {
                   <div className='single-product-main'>
                     <div className='row'>
                       <div className='col-1'>
-                        <ImageSlider slides={SliderData} />
+                        <ImageSlider slides={product.images} />
                       </div>
                       <div className='col-2'>
                         <div className='detailsBlock-1'>
@@ -98,13 +127,13 @@ const ProductDetails = () => {
 
                         <div className='detailsBlock-2'>
                           <p>
-                            Brand new factory-sealed Lenovo Legion 5 Pro 2021 powerful gaming laptop with Ryzen 7 5800H processor featuring Octa-core (8-core) CPU, NVIDIA GeForce RTX 3060 Graphics Card with 6GB of GDDR6 VRAM, 16-inch IPS display with WQXGA (2560 x 1600 pixels) resolution, 400 nits brightness 165Hz refresh rate, 100% sRGB Color Coverage, Dolby Vision, 16GB DDR4 RAM (expandable), 1TB SSD Storage, RGB Backlight Keyboard
+                            {product.description}
                           </p>
                         </div>
 
                         <div className='detailsBlock-3'>
                           <div className='detailsBlock-3-1'>
-                            <ReactStars className="react-stars" {...options} />
+                            <Rating className="react-stars" {...options} />
                             <span>({product.numOfReviews} Reviews)</span>
 
                             <button className='submitReview' onClick={handleClickOpen}>Submit Review</button>
@@ -141,23 +170,23 @@ const ProductDetails = () => {
                   >
                     <DialogTitle>{"Sumbit Review"}</DialogTitle>
                     <DialogContent className='submitDialog'>
-                        <Rating precision={0.5} size="large" />
-                        <textarea></textarea>
-                      <DialogActions>
-                        <Button onClick={handleClose}>Cancel</Button>
-                        <Button>Submit</Button>
-                      </DialogActions>
+                      <Rating precision={0.5} size="large" value={rating} onChange={(e) => setRating(e.target.value)} />
+                      <textarea className='textArea' rows="5" cols="100" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
                     </DialogContent>
+                    <DialogActions>
+                      <Button onClick={handleClose}>Cancel</Button>
+                      <Button onClick={handleSubmit}>Submit</Button>
+                    </DialogActions>
                   </Dialog>
 
                   {
                     product.reviews && product.reviews[0] ? (
                       <>
-                        <h3 className='reviews-txt '>REVIEWS</h3>
+                        <h3 className='reviews-txt'>REVIEWS</h3>
                         <div className='reviews'>
                           {
                             product.reviews &&
-                            product.reviews.map((review) => <ReviewCard review={review} />)
+                            product.reviews.map((review) => <ReviewCard key={review} review={review} />)
                           }
                         </div>
                       </>

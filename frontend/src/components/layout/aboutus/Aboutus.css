@@ -1,0 +1,18 @@
+.aboutUsPage {
+    height: 65vh;
+    width: 60%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.aboutUsPage>div>p {
+    text-align: justify;
+}
+
+@media screen and (max-width: 600px) {
+    .aboutUsPage {
+        margin-top: 100px;
+        width: 85%;
+    }
+}

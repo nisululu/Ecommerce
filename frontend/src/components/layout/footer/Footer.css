@@ -104,5 +104,16 @@ hr{
         margin-top: 1vmax;
     }
 
+    .contactus>p,
+    .follow>ul>li>a,
+    .footer-mid>ul>li>a,
+    .footer-right>p{
+        font-size: 1.2vmax;
+    }
+
+    .copyright>p{
+        font-size: 1.2vmax;
+    }
+
 }
 

@@ -1,7 +1,7 @@
 .single-product-main {
     width: 80%;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 .row {
@@ -18,14 +18,15 @@
 }
 
 .empty {
-    height: 100vh;;
+    height: 100vh;
+    ;
 }
 
 .detailsBlock-1>h2 {
     font-size: 1.6vmax;
 }
 
-.detailsBlock-1>p{
+.detailsBlock-1>p {
     font-size: 0.8vmax;
 }
 
@@ -33,7 +34,7 @@
     margin-bottom: 10px;
 }
 
-.detailsBlock-2>p{
+.detailsBlock-2>p {
     text-align: justify;
     font-size: 0.9vmax;
 }
@@ -50,26 +51,26 @@
     font-size: .8vmax;
 }
 
-.detailsBlock-3 > .detailsBlock-3-1 {
+.detailsBlock-3>.detailsBlock-3-1 {
     align-items: center;
     display: flex;
 }
 
-.detailsBlock-3-1 > button{
+.detailsBlock-3-1>button {
     border: none;
     background-color: #000000;
     color: white;
     margin-left: 1vmax;
-    font-size:.8vmax;
+    font-size: .8vmax;
     padding: .1vmax .5vmax;
 }
 
 
-.detailsBlock-4 {
-    /* width:70%; */
-}
+/* .detailsBlock-4 {
+    width:70%;
+} */
 
-.detailsBlock-4 > h3 {
+.detailsBlock-4>h3 {
     color: #FF3B01;
     font-weight: lighter;
     font-size: 1.3vmax;
@@ -86,8 +87,8 @@
     align-items: center;
 }
 
-.detailsBlock-4-1-1 > button {
-    background-color: black;    
+.detailsBlock-4-1-1>button {
+    background-color: black;
     border: 2px solid black;
     color: white;
     padding: .5vmax .7vmax;
@@ -95,12 +96,12 @@
     font-size: .9vmax;
 }
 
-.detailsBlock-4-1-1 > button:hover {
+.detailsBlock-4-1-1>button:hover {
     border: 2px solid rgba(0, 0, 0, 0);
     background-color: rgba(0, 0, 0, 0.708);
 }
 
-.detailsBlock-4-1-1 > input {
+.detailsBlock-4-1-1>input {
     padding: .5vmax 0;
     text-align: center;
     width: 5vmax;
@@ -116,26 +117,26 @@
     color: green;
 }
 
-.detailsBlock-4-1 > button:last-child {
+.detailsBlock-4-1>button:last-child {
     font-size: .9vmax;
     border: none;
-    background-color:  #000000;
+    background-color: #000000;
     color: white;
     padding: 0.5vmax 5vmax;
     transition: all .5s;
 }
 
-.detailsBlock-4-1 > button:last-child:hover {
+.detailsBlock-4-1>button:last-child:hover {
     background-color: rgba(0, 0, 0, 0.794);
 }
 
 .reviews {
     width: 80%;
-    margin:auto;
+    padding: .5vmax 2vmax;
+    margin: auto;
     display: flex;
-    justify-content:space-evenly;
     align-items: center;
-    overflow: auto;
+    overflow-x: auto;
 }
 
 .reviews-txt {
@@ -147,25 +148,57 @@
     margin-bottom: 2vmax;
 }
 
+.submitDialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.textArea {
+    margin-top: 20px;
+    outline: none;
+    padding: .5vmax;
+}
+
 @media screen and (max-width:600px) {
-    .row{
+    .single-product-main {
+        width: 100%;
+    }
+
+    .row {
         flex-direction: column;
         height: unset;
     }
+
     .col-1,
     .col-2 {
         width: 70%;
         margin: auto;
     }
 
-    .detailsBlock-3 > .detailsBlock-3-1 {
+    .detailsBlock-1>p,
+    .detailsBlock-2>p {
+        font-size: 1.2vmax;
+    }
+
+    .detailsBlock-3{
+        font-size: 1.2vmax;
+    }
+
+    .detailsBlock-3>.detailsBlock-3-1 {
         flex-direction: column;
         align-items: self-start;
     }
 
-    .detailsBlock-3-1 > button{
-        margin-left: 0;
+    .detailsBlock-3-1>button {
+        margin: 1vmax 0 0 0;
+        padding: .5vmax 1vmax;
+        font-size: 1.2vmax;
+    }
+
+    .reviews {
+        width: 90%;
+        padding:0;
+        overflow-x: scroll;
     }
 }
-
-

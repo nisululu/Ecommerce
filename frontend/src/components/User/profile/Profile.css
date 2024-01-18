@@ -88,6 +88,7 @@
     .profile-container {
         flex-direction: column;
         margin: 2vmax auto;
+        margin-top: 70px;
         width: 100vw;
     }
 

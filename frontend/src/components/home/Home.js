@@ -7,12 +7,14 @@ import { useSelector, useDispatch } from 'react-redux'
 // import Loader from '../layout/loader/Loader'
 import { useAlert } from 'react-alert'
 import load from '../images/loading.gif'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
 
     const alert = useAlert()
     const dispatch = useDispatch()
-    const { loading, products, productCount, error } = useSelector(state => state.products)
+    const navigate = useNavigate()
+    const { loading, products, error } = useSelector(state => state.products)
 
     useEffect(() => {
 
@@ -23,6 +25,10 @@ const Home = () => {
 
         dispatch(getAllProducts())
     }, [dispatch, error, alert])
+
+    const handleClick = () => {
+        navigate("/products")
+    }
 
     return (
         <Fragment>
@@ -41,7 +47,9 @@ const Home = () => {
                                 <h1><span>WELCOME</span> TO OUR WEBSITE</h1>
                                 <p>Please feel free to visit our awesome products with reasonable prices.</p>
 
-                                <button className='home-text-btn'>SHOP NOW</button>
+                                <button className='home-text-btn'
+                                onClick={handleClick}
+                                >SHOP NOW</button>
                             </div>
                         </div>
                         <div className='featured-product'>

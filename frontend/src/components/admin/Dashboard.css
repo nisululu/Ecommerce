@@ -1,0 +1,93 @@
+.dashboard {
+    padding-top: 50px;
+    width: 100vw;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    position: absolute;
+    background-color: white;
+}
+
+.dashboardContainer {
+    padding: 0 2rem;
+}
+
+.dashboardContainer>h1 {
+    color: rgba(0, 0, 0, 0.7);
+    padding: 1.5rem;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+}
+
+.dashboardSummary {
+    margin: 2rem 0;
+}
+
+.dashboardSummary>div {
+    display: flex;
+    justify-content: center;
+}
+
+.dashboardSummary>div>p {
+    background-color: #00a676;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    font: 300 1.5rem "Poppins";
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dashboardSummaryBox2>a {
+    font: 300 1.5rem "Poppins";
+    text-decoration: none;
+    /* background-color: seashell; */
+    color: black;
+    padding: 1.5rem;
+    margin: 5rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+    width: 8vmax;
+    height: 8vmax;
+}
+
+.lineChart {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.DoughnutChart {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width: 600px) {
+    .dashboard {
+        display: block;
+        /* grid-template-columns: 1fr; */
+        /* padding: 50px 0 0 0; */
+        /* margin-top: 100px; */
+    }
+
+    .dashboardSummary>div>p {
+        margin: 0;
+    }
+
+    .dashboardSummaryBox2>a {
+        padding: .5rem;
+        margin: 1rem;
+        font: 300 .8rem "Poppins";
+    }
+
+    .DoughnutChart,
+    .lineChart {
+        width: 90%;
+    }
+}

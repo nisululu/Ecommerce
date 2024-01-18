@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react'
 import MetaData from '../../layout/MetaData'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import load from '../../images/loading.gif'
 import { Link, useNavigate } from 'react-router-dom'
 import './Profile.css'
@@ -19,7 +19,11 @@ const Profile = () => {
   return (
     <Fragment>
       {
-        loading === false ? (
+        loading ? (
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+            <img src={load} alt='loading' />
+          </div>
+        ) : (
           <Fragment>
             <MetaData title={`${user.name}'s Profile`} />
             <div className='profile-container'>
@@ -42,16 +46,12 @@ const Profile = () => {
                   <p>{String(user.createdAt).substr(0, 10)}</p>
                 </div>
                 <div>
-                  <Link to='/order'>My Orders</Link>
+                  <Link to='/orders/me'>My Orders</Link>
                   <Link to='/password/update'>Change Password</Link>
                 </div>
               </div>
             </div>
           </Fragment>
-        ) : (
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
-            <img src={load} alt='loading' />
-          </div>
         )
       }
     </Fragment>

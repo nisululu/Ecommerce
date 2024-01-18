@@ -1,0 +1,50 @@
+.adminProductsPage {
+    width: 90%;
+    text-align: center;
+    /* padding: 0 2rem; */
+    margin: auto;
+}
+
+.adminProductsPage>h2 {
+    width: 60%;
+    margin: auto;
+    margin-bottom: -50px;
+    margin-top: 50px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.211);
+}
+
+.MuiDataGrid-columnHeader {
+    background-color: #00a677cd;
+    color: whitesmoke;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.eyeIcon {
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: all .5s;
+}
+.eyeIcon:hover,
+.adminDelBtn:hover {
+    color: black;
+}
+
+.adminDelBtn {
+    border: none;
+    outline: none;
+    margin: 0 0 0 1rem;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: all .5s;
+}
+
+/* @media screen and (max-width: 600px) {
+    .dashboard {
+        max-width: 100%;
+    }
+} */

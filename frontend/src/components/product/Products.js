@@ -12,17 +12,7 @@ import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
 import {useAlert} from 'react-alert'
 import MetaData from '../layout/MetaData'
-
-
-const categories = [
-    "Laptop",
-    "PC",
-    "Smartphone",
-    "Watch",
-    "SSD",
-    "HDD"
-]
-
+import { categories } from './categories'
 
 const Products = () => {
 
@@ -31,7 +21,7 @@ const Products = () => {
     const alert = useAlert()
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [price, setPrice] = useState([0, 200000])
+    const [price, setPrice] = useState([0, 1000000])
     const [category, setCategory] = useState("")
 
     const priceHandler = (event, newPrice) => {
@@ -85,7 +75,7 @@ const Products = () => {
                                    valueLabelDisplay='auto'
                                    aria-labelledby='range-slider'
                                    min={0}
-                                   max={200000}
+                                   max={1000000}
                                    size="small"
                                 />
 
@@ -106,7 +96,7 @@ const Products = () => {
                         </div>
 
                         {
-                            resultPerPage < productsCount && (
+                            resultPerPage < count && (
                                 <div className='pagination-box'>
                                     <Pagination
                                         activePage={currentPage}
