@@ -4,11 +4,12 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
 const path = require('path')
+const cors = require('cors')
 
 const errorMiddleware = require('./middleware/error')
 
 //config
-if(process.env.NODE_ENV !== "PRODUCTION"){
+if (process.env.NODE_ENV !== "PRODUCTION") {
     require("dotenv").config({ path: 'Backend/config/config.env' })
 }
 
@@ -27,6 +28,14 @@ app.use("/api/v1", product)
 app.use("/api/v1", user)
 app.use("/api/v1", order)
 app.use("/api/v1", payment)
+
+// Cors
+const corsOptions ={
+    origin:'https://ecommerce-backend-vemg.onrender.com', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 
 app.use(express.static(path.join(__dirname, "../frontend//build")))
 
