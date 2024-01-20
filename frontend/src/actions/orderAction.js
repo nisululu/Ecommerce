@@ -9,7 +9,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
         const config = {
             headers: { "Content-Type": "application/json" }
         }
-        const { data } = await axios.post("http://localhost:3000/api/v1/order/new", order, config)
+        const { data } = await axios.post("/api/v1/order/new", order, config)
 
         dispatch({
             type: CREATE_ORDER_SUCCESS,
@@ -28,7 +28,7 @@ export const myOrder = () => async (dispatch) => {
     try {
         dispatch({ type: MY_ORDER_REQUEST })
 
-        const { data } = await axios.get("http://localhost:3000/api/v1/orders/me")
+        const { data } = await axios.get("/api/v1/orders/me")
         dispatch({
             type: MY_ORDER_SUCCESS,
             payload: data.orders
@@ -46,7 +46,7 @@ export const getSingleOrderDetail = (id) => async (dispatch) => {
     try {
         dispatch({ type: ORDER_DETAILS_REQUEST })
 
-        const { data } = await axios.get(`http://localhost:3000/api/v1/order/${id}`)
+        const { data } = await axios.get(`/api/v1/order/${id}`)
 
         dispatch({
             type: ORDER_DETAILS_SUCCESS,
@@ -65,7 +65,7 @@ export const ordersAdmin = () => async (dispatch) => {
     try {
         dispatch({ type: ADMIN_ORDER_REQUEST })
 
-        const { data } = await axios.get(`http://localhost:3000/api/v1/admin/orders`)
+        const { data } = await axios.get(`/api/v1/admin/orders`)
 
         dispatch({
             type: ADMIN_ORDER_SUCCESS,
@@ -88,7 +88,7 @@ export const updateOrder = (id, updatedData) => async (dispatch) => {
             headers: { "Content-type": "application/json" }
         }
 
-        const { data } = await axios.put(`http://localhost:3000/api/v1/admin/order/${id}`, updatedData, config)
+        const { data } = await axios.put(`/api/v1/admin/order/${id}`, updatedData, config)
 
         dispatch({
             type: UPDATE_ORDER_SUCCESS,
@@ -103,7 +103,7 @@ export const deleteOrder = (id) => async (dispatch) => {
     try {
         dispatch({ type: DELETE_ORDER_REQUEST })
 
-        const { data } = await axios.delete(`http://localhost:3000/api/v1/admin/order/${id}`)
+        const { data } = await axios.delete(`/api/v1/admin/order/${id}`)
 
         dispatch({
             type: DELETE_ORDER_SUCCESS,
