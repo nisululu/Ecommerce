@@ -39,7 +39,7 @@ export const addProduct = (productData) => async (dispatch) => {
             headers: { "Content-Type": "application/json" }
         }
 
-        const { data } = await axios.post(`https://ecommerce-backend-vemg.onrender.com/api/v1/admin/product/create`, productData, config)
+        const { data } = await axios.post(`http://localhost:3000/api/v1/admin/product/create`, productData, config)
 
         dispatch({
             type: ADD_PRODUCT_SUCCESS,
@@ -59,10 +59,10 @@ export const getAllProducts = (keyword = "", currentPage = 1, price = [0, 100000
             type: ALL_PRODUCT_REQUEST
         })
 
-        let link = `https://ecommerce-backend-vemg.onrender.com/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`
+        let link = `http://localhost:3000/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`
 
         if (category) {
-            link = `https://ecommerce-backend-vemg.onrender.com/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}`
+            link = `http://localhost:3000/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}`
         }
 
         const { data } = await axios.get(link)
@@ -86,7 +86,7 @@ export const getAdminProduct = () => async (dispatch) => {
             type: ADMIN_PRODUCT_REQUEST
         })
 
-        const { data } = await axios.get(`https://ecommerce-backend-vemg.onrender.com/api/v1/admin/products`)
+        const { data } = await axios.get(`http://localhost:3000/api/v1/admin/products`)
 
         dispatch({
             type: ADMIN_PRODUCT_SUCCESS,
@@ -105,7 +105,7 @@ export const deleteProduct = (id) => async (dispatch) => {
     try {
         dispatch({ type: DELETE_PRODUCT_REQUEST })
 
-        const { data } = await axios.delete(`https://ecommerce-backend-vemg.onrender.com/api/v1/admin/product/${id}`)
+        const { data } = await axios.delete(`http://localhost:3000/api/v1/admin/product/${id}`)
 
         dispatch({
             type: DELETE_PRODUCT_SUCCESS,
@@ -126,7 +126,7 @@ export const updateProduct = (id, updatedProductData) => async (dispatch) => {
         const config = {
             headers: { "Content-Type": "application/json" }
         }
-        const { data } = await axios.put(`https://ecommerce-backend-vemg.onrender.com/api/v1/admin/product/${id}`, updatedProductData, config)
+        const { data } = await axios.put(`http://localhost:3000/api/v1/admin/product/${id}`, updatedProductData, config)
 
         dispatch({
             type: UPDATE_PASSWORD_SUCCESS,
@@ -146,7 +146,7 @@ export const getProductDetails = (id) => async (dispatch) => {
             type: PRODUCT_DETAILS_REQUEST
         })
 
-        const { data } = await axios.get(`https://ecommerce-backend-vemg.onrender.com/api/v1/product/${id}`)
+        const { data } = await axios.get(`http://localhost:3000/api/v1/product/${id}`)
 
         dispatch({
             type: PRODUCT_DETAILS_SUCCESS,
@@ -168,7 +168,7 @@ export const reviewProduct = (reviewData) => async (dispatch) => {
         const config = {
             headers: { "Content-Type": "application/json" }
         }
-        const { data } = await axios.put('https://ecommerce-backend-vemg.onrender.com/api/v1/review', reviewData, config)
+        const { data } = await axios.put('http://localhost:3000/api/v1/review', reviewData, config)
         dispatch({
             type: PRODUCT_REVIEW_SUCCESS,
             payload: data.success
@@ -186,7 +186,7 @@ export const getAllReviews = (id) => async (dispatch) => {
     try {
         dispatch({ type: ALL_REVIEW_REQUEST })
 
-        const { data } = await axios.get(`https://ecommerce-backend-vemg.onrender.com/api/v1/reviews?id=${id}`)
+        const { data } = await axios.get(`http://localhost:3000/api/v1/reviews?id=${id}`)
         dispatch({
             type: ALL_REVIEW_SUCCESS,
             payload: data.reviews
@@ -204,7 +204,7 @@ export const deleteReviews = (reviewId, productId) => async (dispatch) => {
     try {
         dispatch({ type: DELETE_REVIEW_REQUEST })
 
-        const { data } = await axios.delete(`https://ecommerce-backend-vemg.onrender.com/api/v1/reviews?id=${reviewId}&productID=${productId}`)
+        const { data } = await axios.delete(`http://localhost:3000/api/v1/reviews?id=${reviewId}&productID=${productId}`)
         dispatch({
             type: DELETE_REVIEW_SUCCESS,
             payload: data

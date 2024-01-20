@@ -1,5 +1,6 @@
 .cartPage {
     padding: 5vmax;
+    min-height: 60vh;
 }
 
 .cartHeader {
@@ -9,6 +10,7 @@
     display: grid;
     grid-template-columns: 4fr 1fr 1fr;
     margin: auto;
+    margin-top: 70px;
     color: white;
     font: 300 .7vmax;
 }
